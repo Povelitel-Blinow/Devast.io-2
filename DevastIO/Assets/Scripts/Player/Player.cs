@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerMove _move;
 
     [SerializeField] private PlayerLook _look;
+    [SerializeField] private PlayerShoot _shoot;
 
     public void Init()
     {
@@ -18,5 +19,10 @@ public class Player : MonoBehaviour
     {
         _move.MovePlayer(_input.GetMoveInput());
         _look.UpdateLook();
+
+        if(_input.WasPressed())
+        {
+            _shoot.Shoot();
+        }
     }
 }

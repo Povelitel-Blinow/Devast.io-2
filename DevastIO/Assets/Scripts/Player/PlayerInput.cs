@@ -14,4 +14,6 @@ public class PlayerInput : MonoBehaviour
     }
 
     public Vector2 GetMoveInput() => OnFoot.Move.ReadValue<Vector2>();
+
+    public bool WasPressed() => OnFoot.Interact.WasPressedThisFrame();
 }
