@@ -259,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7199143945151714488}
   - component: {fileID: 7199143945151714489}
-  - component: {fileID: 6544583952291307629}
+  - component: {fileID: 3334587775697951019}
   - component: {fileID: 5006953506295904020}
   - component: {fileID: 2139720661376523968}
   - component: {fileID: 3214262366942806980}
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2528662143
+  GlobalObjectIdHash: 2528895261
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &6544583952291307629
+--- !u!114 &3334587775697951019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

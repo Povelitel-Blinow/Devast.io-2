@@ -8,12 +8,9 @@ public class Server : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        //if (IsOwner == false) return;
-
         if (Instance == null)
         {
             Instance = this;
-            Debug.Log("Singletone is working");
             return;
         }
         Destroy(gameObject);
@@ -22,21 +19,25 @@ public class Server : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SpawnObjectServerRpc(SpawnRequest spawnRequest)
     {
-        Debug.Log(111);
-        SpawnableObject spawnableObject = GetObjectByID(spawnRequest.SpawnID); 
+        SpawnableObject newInstantiatedObject = InstantiateObjectByID(spawnRequest);
 
-        SpawnableObject newObject = Instantiate(spawnableObject, spawnRequest.SpawnPos, spawnRequest.SpawnRot);
+        newInstantiatedObject.NetworkObject.Spawn();
+        newInstantiatedObject.InitByServer();
+    }
 
-        newObject.NetworkObject.Spawn();
-        newObject.Init();
+    private SpawnableObject InstantiateObjectByID(SpawnRequest spawnRequest)
+    {
+        var objectToSpawn = GetObjectByID(spawnRequest.SpawnID);
+
+        return Instantiate(objectToSpawn, spawnRequest.SpawnPos, spawnRequest.SpawnRot);
     }
 
     private SpawnableObject GetObjectByID(int id)
     {
-        foreach(SpawnableObjectData s in _spawnables.SpawnableObjects)
+        foreach(SpawnableObject s in _spawnables.SpawnableObjects)
         {
             if(s.SpawnID == id)
-                return s.SpawnObject;
+                return s;
         }
         throw new System.Exception($"No spawnable object with id = {id} in list");
     }

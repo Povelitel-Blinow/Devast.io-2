@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class Bullet : SpawnableObject
 {
+    [Header("Settings")]
     [SerializeField] private float _speed;
-    public override void Init()
+
+    public override void InitByServer()
     {
         Destroy(gameObject, 5);
     }
 
-    public void Update()
+    private void Update()
     {
         if(IsOwner == false) return;
 
         transform.position += transform.up * _speed * Time.deltaTime;
     }
-
 }

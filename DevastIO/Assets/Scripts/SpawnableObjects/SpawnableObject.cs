@@ -1,8 +1,12 @@
 using Unity.Netcode;
+using UnityEngine;
 
 public abstract class SpawnableObject : NetworkBehaviour
 {
-    public int SpawnID;
+    [Header("Server Data")]
+    [SerializeField] private int _spawnID;
 
-    public abstract void Init();
+    public int SpawnID => _spawnID;
+
+    public abstract void InitByServer();
 }
