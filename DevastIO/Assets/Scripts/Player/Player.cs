@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerInput _input;
     [SerializeField] private PlayerMove _move;
+    [SerializeField] private PlayerBuild _build;
 
     [SerializeField] private PlayerLook _look;
     [SerializeField] private PlayerShoot _shoot;
@@ -20,9 +21,15 @@ public class Player : MonoBehaviour
         _move.MovePlayer(_input.GetMoveInput());
         _look.UpdateLook();
 
-        if(_input.WasPressed())
+        
+        if(_input.WasPressed1())
         {
             _shoot.Shoot();
+        }
+
+        if(_input.WasPressed2())
+        {
+            _build.Build();
         }
     }
 }

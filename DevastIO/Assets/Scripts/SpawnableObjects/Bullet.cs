@@ -12,7 +12,7 @@ public class Bullet : SpawnableObject
 
     private void Update()
     {
-        if(IsOwner == false) return;
+        if(IsServer == false) return;
 
         transform.position += transform.up * _speed * Time.deltaTime;
     }

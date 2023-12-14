@@ -1,13 +1,9 @@
-using Unity.Netcode;
 using UnityEngine;
 
-public class Block : NetworkBehaviour
+public class Block : SpawnableObject
 {
-    [SerializeField] private Sprite _sprite;
-    
-    public void Init(int x, int y)
+    public override void InitByServer()
     {
-        transform.localPosition = new Vector3(x, y);
-        NetworkObject.Spawn(true);
+        Debug.Log("Spawned!");
     }
 }

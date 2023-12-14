@@ -3,7 +3,7 @@ public class Cell
     private int _posX;
     private int _posY;
 
-    public Block CurrentBlock { get; private set; }
+    public GroundCell CurrentBlock { get; private set; }
 
     public bool IsOccupied => CurrentBlock != null;
     public Cell(int x, int y)
@@ -12,7 +12,7 @@ public class Cell
         _posY = y;
     }
 
-    public void Occupy(Block block)
+    public void Occupy(GroundCell block)
     {
         CurrentBlock = block;
     }

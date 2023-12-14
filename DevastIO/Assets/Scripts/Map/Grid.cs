@@ -4,7 +4,7 @@ public class Grid : MonoBehaviour
 {
     [SerializeField] private Vector2Int _gridSize;
 
-    [SerializeField] private Block _emptyBlock; //tmp
+    [SerializeField] private GroundCell _emptyBlock; //tmp
 
     private const int GridBorderOffset = 1;
 
@@ -20,9 +20,25 @@ public class Grid : MonoBehaviour
             for (int y = 0; y < _gridSize.y; y++)
             {
                 Cells[x, y] = new Cell(x, y);
-                Instantiate(_emptyBlock, transform).Init(x, y);
+                GroundCell groundCell = Instantiate(_emptyBlock, transform);
+                groundCell.Init(x, y);
+                Cells[x, y].Occupy(groundCell);
             }
         }
+    }
+
+    public GroundCell GetCellByGround(float x, float y)
+    {
+        int newX = Mathf.FloorToInt(x / GridBorderOffset);
+        int newY = Mathf.FloorToInt(y / GridBorderOffset);  
+
+        if ((newX >= _gridSize.x || newX < 0) || (newY >= _gridSize.y || newY < 0))
+        {
+            return null;
+        }
+
+        
+        return Cells[newX, newY].CurrentBlock;
     }
     
 }

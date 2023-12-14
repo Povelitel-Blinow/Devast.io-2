@@ -8,12 +8,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         SpawnRequest spawnRequest = 
-            new SpawnRequest
-            (
-            _muzzle.transform.position,
-            _muzzle.transform.rotation,
-            _bullet.SpawnID
-            );
+            new SpawnRequest(_muzzle.transform.position, _muzzle.transform.rotation, _bullet.SpawnID);
 
         Server.Instance.SpawnObjectServerRpc(spawnRequest);
     }

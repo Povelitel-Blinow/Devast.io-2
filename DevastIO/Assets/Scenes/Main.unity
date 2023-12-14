@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridSize: {x: 10, y: 10}
-  _emptyBlock: {fileID: 7366629941778491293, guid: 348863f95e968eb4ba16060e876070a5, type: 3}
+  _emptyBlock: {fileID: 148555730975091717, guid: 6b370277265af5c4aa25ae57e6d2ef3d, type: 3}
 --- !u!1 &1074804376
 GameObject:
   m_ObjectHideFlags: 0
