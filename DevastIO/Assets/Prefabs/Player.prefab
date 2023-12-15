@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2528662143
+  GlobalObjectIdHash: 2528895261
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2139720661376523968}
+  _world: {fileID: 5719236269747422750, guid: e2dade443fe51a64ea254900dfc82358, type: 3}
 --- !u!114 &2139720661376523968
 MonoBehaviour:
   m_ObjectHideFlags: 0

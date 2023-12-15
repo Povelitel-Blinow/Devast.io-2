@@ -9,4 +9,9 @@ public abstract class SpawnableObject : NetworkBehaviour
     public int SpawnID => _spawnID;
 
     public abstract void InitByServer();
+
+    public void Spawn()
+    {
+        NetworkObject.Spawn();
+    }
 }

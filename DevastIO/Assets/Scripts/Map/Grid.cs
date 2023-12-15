@@ -27,7 +27,7 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public GroundCell GetCellByGround(float x, float y)
+    public GroundCell GetCellByPos(float x, float y)
     {
         int newX = Mathf.FloorToInt(x / GridBorderOffset);
         int newY = Mathf.FloorToInt(y / GridBorderOffset);  
@@ -37,7 +37,6 @@ public class Grid : MonoBehaviour
             return null;
         }
 
-        
         return Cells[newX, newY].CurrentBlock;
     }
     

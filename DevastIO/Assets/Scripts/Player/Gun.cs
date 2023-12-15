@@ -1,15 +1,23 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : NetworkBehaviour
 {
     [SerializeField] private SpawnableObject _bullet;
     [SerializeField] private GameObject _muzzle;
 
     public void Shoot()
     {
-        SpawnRequest spawnRequest = 
-            new SpawnRequest(_muzzle.transform.position, _muzzle.transform.rotation, _bullet.SpawnID);
+        SpawnObjectServerRpc();
+    }
 
-        Server.Instance.SpawnObjectServerRpc(spawnRequest);
+    [ServerRpc]
+    private void SpawnObjectServerRpc()
+    {
+        SpawnableObject newInstantiatedObject
+            = Instantiate(_bullet, _muzzle.transform.position, _muzzle.transform.rotation);
+
+        newInstantiatedObject.NetworkObject.Spawn();
+        newInstantiatedObject.InitByServer();
     }
 }

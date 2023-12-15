@@ -14,14 +14,12 @@ public class GroundCell : NetworkBehaviour //it is not SpawnableObject because i
     public void Init(int x, int y)
     {
         transform.localPosition = new Vector3(x, y);
-        NetworkObject.Spawn(true);
+        NetworkObject.Spawn();
     }
 
     public void TryOccupy(Block block)
     {
         if (isVacant == false) return;
-
-        //SpawnRequest request = new SpawnRequest(transform.position, transform.rotation, block.SpawnID); 
 
         _currentBlock = Instantiate(block, _center.transform.position, _center.transform.rotation);
         _currentBlock.NetworkObject.Spawn();

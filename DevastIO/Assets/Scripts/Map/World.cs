@@ -9,18 +9,17 @@ public class World : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (Instance == null)
+        if(Instance == null)
+        {
             Instance = this;
-        else
-            Destroy(gameObject);
-
-
-        if (IsHost == false) return;
-        _grid.Init();
+            _grid.Init();
+            return;
+        }
+        Destroy(gameObject);
     }
 
     public GroundCell GetCellByPos(float x, float y)
     {
-        return _grid.GetCellByGround(x, y);
+        return _grid.GetCellByPos(x, y);
     }
 }

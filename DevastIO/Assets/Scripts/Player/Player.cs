@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
         if(_input.WasPressed2())
         {
-            _build.Build();
+            _build.BuildServerRpc();
         }
     }
 }
